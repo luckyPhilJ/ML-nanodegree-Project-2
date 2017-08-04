@@ -13822,7 +13822,9 @@ The maximum depth 1 one model has low training and validation scores, which both
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>Grid search is a method of systematically trying different models and/or hyper-parameters to achieve optimal validation score before moving on to the test set. For example when using a decision tree model, the grid search technique can to used to try different values for the maximum depth variable to find the best validation score.</p>
+<p>Grid search is a method of systematically trying different models and/or hyper-parameters to achieve optimal validation score before moving on to the test set.</p>
+<p>Reasonable models and hyper-parameters are selected by the engineer and can be thought of as laid out in a grid with say kernel types across the top and gamma values on the side. The algorithm then goes through each different combination and evaluates them according the a user selected evaluation function, like r^2 or f(0.5) etc.</p>
+<p>For example when using a decision tree model, the grid search technique can to used to try different values for the maximum depth variable to find the best validation score like R^2.</p>
 
 </div>
 </div>
@@ -13850,8 +13852,8 @@ The maximum depth 1 one model has low training and validation scores, which both
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
-<p>The k-fold cross-validation training technique splits the data into k buckets then, calculates the test score on each bucket in turn, and then averages the test score over all k buckets.</p>
-<p>Using this technique it allows you to utilize all the data in training the model, and in the context of grid search, it prevents the overfitting that may occur when optimizing parameters on a particular test set, which can cause information about that data to 'leak' into the model.</p>
+<p>The k-fold cross-validation training technique randomly shuffles and splits the training data into k buckets then, calculates the test score on each bucket in turn, and then averages the test score over all k buckets.</p>
+<p>When using grid search for model optimization, the data is split into training and testing data, then the training data is further split into training and validation data. This reduces the amount of data available for training and also results may be affected by the random selection of the training/validation set. Using cross validation to average over k buckets of shuffled data, the whole training set can be used for training and averaging over the buckets will reduce the effect caused by using just one random bucket.</p>
 
 </div>
 </div>
@@ -14087,7 +14089,7 @@ Predicted selling price for Client 3&#39;s home: $854,700.00
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong></p>
 <p>Recommended selling prices as above.</p>
-<p>Relative prices seem reasonable as prices are positively correlated to number of rooms, lack of poverty and favorable student-teacher ratios.</p>
+<p>Relative prices seem reasonable as prices are positively correlated to number of rooms, lack of poverty and favorable student-teacher ratios. Prices all lay within the min and max range of the training data, with client 1's house not far from the medium price.</p>
 
 </div>
 </div>
